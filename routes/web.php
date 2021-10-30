@@ -18,6 +18,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/book','BookController@getList')->name('getListBook');
+Route::get('/book','BookController@index')->name('listBookView');
+Route::get('/admin','BookController@getList')->name('adminView');
 
+Route::resource('/sach','BookController');
 
