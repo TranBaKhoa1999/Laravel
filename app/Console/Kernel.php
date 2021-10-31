@@ -26,6 +26,10 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
+        $schedule->command('command:createBook')->everyMinute();
+        // $schedule->call(function(){
+        //     info("run");
+        // })->everyMinute();
     }
 
     /**

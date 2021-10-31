@@ -10,16 +10,20 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BookController;
+use App\Http\Controllers\HomeController;
 Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+// Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/book','BookController@index')->name('listBookView');
+Route::get('/home', [HomeController::class,'index'])->name('home');
+Route::get('/book',[BookController::class,'index'])->name('listBookView');
 // Route::get('/admin','BookController@getList')->name('adminView');
+// Route::group(['prefix' => 'admin'], function(){};
+Route::get('run-queue','RunQueueController@runQueue');
 
-Route::resource('/sach','BookController');
+Route::get('send-mail','SendMailController@sendMail');
 
