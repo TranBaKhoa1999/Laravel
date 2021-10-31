@@ -14,6 +14,7 @@ class BookController extends Controller
     public function index()
     {
         //
+        dd(config());
         return "list sach";
     }
 
